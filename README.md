@@ -16,7 +16,9 @@ https://mega.nz/file/gPsyzBYK#RIvcTTG_D0b6wjx5_lcMD1RIGUACozvKlfwAlKy_Aqs
 /still/{KINOPOISK_ID}.jpg
 ```
 
-### Restore database:
+### Database (`694 163 movies`)
+
+https://mega.nz/file/sLMjFAjI#YsejGGXtjFgGFzFuYpVUVzkFcUYR-HYQWT_BPzGwZ7o
 
 ```bash
 sudo su postgres
