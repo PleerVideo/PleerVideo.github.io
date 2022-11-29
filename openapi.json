@@ -1,0 +1,544 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Movie/TV Show API IVI, MEGOGO, KINOPOISK, etc.",
+    "description": "Open and free Movie/TV Show API IVI, MEGOGO, KINOPOISK, etc.",
+    "contact": {
+      "name": "Support",
+      "email": "support@pleer.video"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://pleer.video",
+      "description": "Main (production) server"
+    }
+  ],
+  "paths": {
+    "/{id_movie}.json": {
+      "get": {
+        "tags": [
+          "MOVIES"
+        ],
+        "summary": "Get Movie data by ID",
+        "parameters": [
+          {
+            "name": "id_movie",
+            "in": "path",
+            "description": "Movie ID from KINOPOISK",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 10000000,
+              "minimum": 298,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Movie is not found"
+          }
+        }
+      }
+    },
+    "/{id_tv}.json": {
+      "get": {
+        "tags": [
+          "TV SHOWS"
+        ],
+        "summary": "Get TV Show data by ID",
+        "parameters": [
+          {
+            "name": "id_tv",
+            "in": "path",
+            "description": "TV Show ID from KINOPOISK",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maximum": 10000000,
+              "minimum": 298,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TvShow"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "TV Show is not found"
+          }
+        }
+      }
+    },
+    "/movies.json": {
+      "get": {
+        "tags": [
+          "MOVIES"
+        ],
+        "summary": "API for the latest Movie updates",
+        "description": "API for the latest Movie updates",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movies"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Movies are not found"
+          }
+        }
+      }
+    },
+    "/episodes.json": {
+      "get": {
+        "tags": [
+          "TV SHOWS"
+        ],
+        "summary": "API for the latest TV Show updates",
+        "description": "API for the latest TV Show updates",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TvShows"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "TV Shows are not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TvShows": {
+        "required": [
+          "results",
+          "pages"
+        ],
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kp_id": {
+                  "type": "integer",
+                  "example": 1272433
+                },
+                "season": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "episode": {
+                  "type": "integer",
+                  "example": 16
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2020-09-18"
+                },
+                "json": {
+                  "type": "string",
+                  "example": "https://pleer.video/1272433.json"
+                },
+                "iframe": {
+                  "type": "string",
+                  "example": "https://pleer.video/1272433#S1E16"
+                }
+              }
+            }
+          },
+          "pages": {
+            "type": "object",
+            "properties": {
+              "current": {
+                "type": "integer",
+                "example": 2
+              },
+              "last": {
+                "type": "integer",
+                "example": 15
+              },
+              "url": {
+                "type": "object",
+                "properties": {
+                  "prev": {
+                    "type": "string",
+                    "example": "https://pleer.video/episodes1.json"
+                  },
+                  "next": {
+                    "type": "string",
+                    "example": "https://pleer.video/episodes3.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Movies": {
+        "required": [
+          "results",
+          "pages"
+        ],
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kp_id": {
+                  "type": "integer",
+                  "example": 1412546
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2020-10-01"
+                },
+                "json": {
+                  "type": "string",
+                  "example": "https://pleer.video/1412546.json"
+                },
+                "iframe": {
+                  "type": "string",
+                  "example": "https://pleer.video/1412546"
+                }
+              }
+            }
+          },
+          "pages": {
+            "type": "object",
+            "properties": {
+              "current": {
+                "type": "integer",
+                "example": 2
+              },
+              "last": {
+                "type": "integer",
+                "example": 47
+              },
+              "url": {
+                "type": "object",
+                "properties": {
+                  "prev": {
+                    "type": "string",
+                    "example": "https://pleer.video/movies1.json"
+                  },
+                  "next": {
+                    "type": "string",
+                    "example": "https://pleer.video/movies3.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Movie": {
+        "required": [
+          "kp_id"
+        ],
+        "type": "object",
+        "properties": {
+          "kp_id": {
+            "type": "integer",
+            "example": 444
+          },
+          "imdb_id": {
+            "type": "string",
+            "example": "0103064"
+          },
+          "tmdb_id": {
+            "type": "integer",
+            "nullable": true,
+            "example": 280
+          },
+          "wa_id": {
+            "type": "integer",
+            "nullable": true,
+            "example": 5082
+          },
+          "douban_id": {
+            "type": "integer",
+            "nullable": true,
+            "example": 1291844
+          },
+          "title_ru": {
+            "type": "string",
+            "example": "Терминатор 2: Судный день"
+          },
+          "title_en": {
+            "type": "string",
+            "example": "Terminator 2: Judgment Day"
+          },
+          "year": {
+            "type": "integer",
+            "example": 1991
+          },
+          "countries": {
+            "type": "string",
+            "example": "США"
+          },
+          "directors": {
+            "type": "string",
+            "example": "Джеймс Кэмерон"
+          },
+          "genres": {
+            "type": "string",
+            "example": "фантастика,боевик,триллер"
+          },
+          "actors": {
+            "type": "string",
+            "example": "Арнольд Шварценеггер,Линда Хэмилтон,Эдвард Ферлонг,Роберт Патрик,Эрл Боэн"
+          },
+          "description": {
+            "type": "string",
+            "example": "Прошло более десяти лет с тех пор, как киборг из 2029 года пытался уничтожить Сару Коннор — женщину, чей будущий сын выиграет войну человечества против машин. Теперь у Сары родился сын Джон и время, когда он поведет за собой выживших людей на борьбу с машинами, неумолимо приближается. Именно в этот момент из постапокалиптического будущего прибывает новый терминатор — практически неуязвимая модель T-1000, способная принимать любое обличье. Цель нового терминатора уже не Сара, а уничтожение молодого Джона Коннора. Однако шансы Джона на спасение существенно повышаются, когда на помощь приходит перепрограммированный сопротивлением терминатор предыдущего поколения. Оба киборга вступают в смертельный бой, от исхода которого зависит судьба человечества."
+          },
+          "pictures": {
+            "type": "string",
+            "example": "3474243,3435927,3034496"
+          },
+          "premiere": {
+            "type": "string",
+            "example": "1991-07-01"
+          },
+          "kp_rating": {
+            "type": "integer",
+            "example": 83
+          },
+          "kp_vote": {
+            "type": "integer",
+            "example": 340057
+          },
+          "imdb_rating": {
+            "type": "integer",
+            "example": 85
+          },
+          "imdb_vote": {
+            "type": "integer",
+            "example": 979716
+          },
+          "poster": {
+            "type": "integer",
+            "example": 1
+          },
+          "still": {
+            "type": "integer",
+            "example": 1
+          },
+          "type": {
+            "type": "integer",
+            "example": 0
+          },
+          "embeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmbedMovie"
+            }
+          }
+        }
+      },
+      "TvShow": {
+        "required": [
+          "kp_id"
+        ],
+        "type": "object",
+        "properties": {
+          "kp_id": {
+            "type": "integer",
+            "example": 584956
+          },
+          "imdb_id": {
+            "type": "string",
+            "example": "3781262"
+          },
+          "tmdb_id": {
+            "type": "integer",
+            "nullable": true,
+            "example": 69591
+          },
+          "wa_id": {
+            "type": "integer",
+            "nullable": true,
+            "example": null
+          },
+          "douban_id": {
+            "type": "integer",
+            "nullable": true,
+            "example": null
+          },
+          "title_ru": {
+            "type": "string",
+            "example": "Склифосовский"
+          },
+          "title_en": {
+            "type": "string",
+            "example": ""
+          },
+          "year": {
+            "type": "integer",
+            "example": 2012
+          },
+          "countries": {
+            "type": "string",
+            "example": "Россия"
+          },
+          "directors": {
+            "type": "string",
+            "example": "Андрей Селиванов,Юлия Краснова"
+          },
+          "genres": {
+            "type": "string",
+            "example": "драма,мелодрама"
+          },
+          "actors": {
+            "type": "string",
+            "example": "Максим Аверин,Ольга Красько,Дмитрий Миллер,Евгений Галушко,Ольга Павловец"
+          },
+          "description": {
+            "type": "string",
+            "example": "Фильм о сложных, драматичных, подчас героических буднях врачей главного института скорой помощи – знаменитого «Склифа». Их работа – испытание на прочность, каждый день они дают кому-то вторую жизнь... В центре истории – непростые отношения хирурга Олега Брагина, блестящего врача, умного, жесткого и харизматичного, но давно отчаявшегося найти в жизни что-то настоящее, кроме работы, и начальницы Ларисы – сумевшей сквозь цинизм Брагина разглядеть потерянного в жизни и одинокого человека..."
+          },
+          "pictures": {
+            "type": "string",
+            "example": "3439048,3439047,3439046"
+          },
+          "premiere": {
+            "type": "string",
+            "example": "2012-08-27"
+          },
+          "kp_rating": {
+            "type": "integer",
+            "example": 75
+          },
+          "kp_vote": {
+            "type": "integer",
+            "example": 47405
+          },
+          "imdb_rating": {
+            "type": "integer",
+            "example": 63
+          },
+          "imdb_vote": {
+            "type": "integer",
+            "example": 63
+          },
+          "poster": {
+            "type": "integer",
+            "example": 1
+          },
+          "still": {
+            "type": "integer",
+            "example": 1
+          },
+          "type": {
+            "type": "integer",
+            "example": 1
+          },
+          "embeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmbedTvShow"
+            }
+          }
+        }
+      },
+      "EmbedMovie": {
+        "type": "object",
+        "properties": {
+          "iframe": {
+            "type": "string",
+            "example": "https://pleer.video/444"
+          },
+          "ivi_id": {
+            "type": "integer",
+            "example": 60552
+          },
+          "right_type": {
+            "type": "string",
+            "example": "AVOD"
+          },
+          "right_date_end": {
+            "type": "string",
+            "example": "2021-06-30"
+          },
+          "right_date_begin": {
+            "type": "string",
+            "example": "2012-01-13"
+          }
+        }
+      },
+      "EmbedTvShow": {
+        "type": "object",
+        "properties": {
+          "iframe": {
+            "type": "string",
+            "example": "https://pleer.video/584956#S6E16"
+          },
+          "ivi_id": {
+            "type": "integer",
+            "example": 584956
+          },
+          "season": {
+            "type": "integer",
+            "example": 6
+          },
+          "episode": {
+            "type": "integer",
+            "example": 16
+          },
+          "right_type": {
+            "type": "string",
+            "example": "AVOD"
+          },
+          "right_date_end": {
+            "type": "string",
+            "example": "2022-08-01"
+          },
+          "right_date_begin": {
+            "type": "string",
+            "example": "2017-07-03"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "results": [
+    {
+      "kp_id": 79844,
+      "season": 1,
+      "episode": 3,
+      "date": "2010-12-25",
+      "json": "https://pleer.video/79844.json",
+      "iframe": "https://pleer.video/79844#S1E3"
+    },
+    {
+      "kp_id": 79845,
+      "season": 1,
+      "episode": 3,
+      "date": "2010-12-25",
+      "json": "https://pleer.video/79845.json",
+      "iframe": "https://pleer.video/79845#S1E3"
+    },
+    {
+      "kp_id": 469223,
+      "season": 1,
+      "episode": 12,
+      "date": "2010-08-16",
+      "json": "https://pleer.video/469223.json",
+      "iframe": "https://pleer.video/469223#S1E12"
+    },
+    {
+      "kp_id": 417643,
+      "season": 1,
+      "episode": 170,
+      "date": "2010-08-13",
+      "json": "https://pleer.video/417643.json",
+      "iframe": "https://pleer.video/417643#S1E170"
+    },
+    {
+      "kp_id": 470680,
+      "season": 1,
+      "episode": 8,
+      "date": "2010-07-15",
+      "json": "https://pleer.video/470680.json",
+      "iframe": "https://pleer.video/470680#S1E8"
+    },
+    {
+      "kp_id": 369682,
+      "season": 1,
+      "episode": 6,
+      "date": "2010-04-25",
+      "json": "https://pleer.video/369682.json",
+      "iframe": "https://pleer.video/369682#S1E6"
+    },
+    {
+      "kp_id": 77284,
+      "season": 1,
+      "episode": 3,
+      "date": "2010-03-14",
+      "json": "https://pleer.video/77284.json",
+      "iframe": "https://pleer.video/77284#S1E3"
+    }
+  ],
+  "pages": {
+    "current": 12,
+    "last": 12,
+    "url": {
+      "prev": "https://pleer.video/episodes11.json"
+    }
+  }
+}

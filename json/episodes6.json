@@ -1,0 +1,51 @@
+{
+  "results": [
+    {
+      "kp_id": 452607,
+      "season": 1,
+      "episode": 45,
+      "date": "2011-04-07",
+      "json": "https://pleer.video/452607.json",
+      "iframe": "https://pleer.video/452607#S1E45"
+    },
+    {
+      "kp_id": 523241,
+      "season": 1,
+      "episode": 39,
+      "date": "2011-01-18",
+      "json": "https://pleer.video/523241.json",
+      "iframe": "https://pleer.video/523241#S1E39"
+    },
+    {
+      "kp_id": 469223,
+      "season": 1,
+      "episode": 12,
+      "date": "2010-08-16",
+      "json": "https://pleer.video/469223.json",
+      "iframe": "https://pleer.video/469223#S1E12"
+    },
+    {
+      "kp_id": 417643,
+      "season": 1,
+      "episode": 170,
+      "date": "2010-08-13",
+      "json": "https://pleer.video/417643.json",
+      "iframe": "https://pleer.video/417643#S1E170"
+    },
+    {
+      "kp_id": 470680,
+      "season": 1,
+      "episode": 8,
+      "date": "2010-07-15",
+      "json": "https://pleer.video/470680.json",
+      "iframe": "https://pleer.video/470680#S1E8"
+    }
+  ],
+  "pages": {
+    "current": 6,
+    "last": 6,
+    "url": {
+      "prev": "https://pleer.video/episodes5.json"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "pleer",
+  "version": "1.0.0",
+  "description": "Legal player API",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^3.2.0",
+    "dotenv": "^16.0.3",
+    "fastify": "3.4.1",
+    "fastify-postgres": "3.1.0",
+    "he": "^1.2.0",
+    "lru-cache": "6.0.0",
+    "pg": "8.3.3",
+    "request": "^2.88.2",
+    "xml-flow": "1.0.4",
+    "xml-to-json-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LevPlatonovich",
+  "license": "ISC"
+}
